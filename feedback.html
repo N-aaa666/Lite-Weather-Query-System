@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>意见反馈</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="bg">
+    <img src="images/bg.png" alt="背景">
+</div>
+
+<div class="wrapper">
+  <div class="top-bar">
+    <div class="system-title" style="color: #000;">欢迎使用轻简天气系统</div>
+    <div class="user-info">
+      <img src="images/tx.png" class="avatar" alt="头像">
+      <span id="userNameDisplay">用户</span>
+    </div>
+  </div>
+
+  <div class="nav">
+    <a href="main.html">首页</a>
+    <a href="city.html">城市天气</a>
+    <a href="detail.html">天气详情</a>
+    <a href="feedback.html">意见反馈</a>
+  </div>
+
+    <h2 class="page-title">问题意见反馈</h2>
+    <div class="feedback-card">
+        <input type="text" placeholder="请填写您的姓名" id="userName">
+        <input type="text" placeholder="请填写QQ号码" id="userQQ">
+        <input type="text" placeholder="请填写联系电话" id="userPhone">
+        <textarea placeholder="请输入修改意见、问题描述" id="userMsg"></textarea>
+        <button onclick="submitFeedback()">提交反馈</button>
+    </div>
+</div>
+
+<script>
+function submitFeedback(){
+    let name = document.getElementById("userName").value.trim();
+    let qq = document.getElementById("userQQ").value.trim();
+    let phone = document.getElementById("userPhone").value.trim();
+    let msg = document.getElementById("userMsg").value.trim();
+    if(!name || !qq || !phone || !msg){
+        alert("请完整填写所有信息后再提交");
+        return;
+    }
+    alert("反馈提交成功，我们会尽快查看处理！");
+    document.getElementById("userName").value = "";
+    document.getElementById("userQQ").value = "";
+    document.getElementById("userPhone").value = "";
+    document.getElementById("userMsg").value = "";
+}
+document.getElementById("userNameDisplay").innerText = localStorage.getItem("userName") || "游客";
+</script>
+<script src="js/app.js"></script>
+</body>
+</html>

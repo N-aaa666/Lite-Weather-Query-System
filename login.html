@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轻简天气 - 登录</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+  <div class="bg">
+    <img src="images/bg.png" alt="背景">
+  </div>
+  <div class="wrapper">
+    <div class="login-card">
+      <h2>用户登录</h2>
+      <input type="text" id="loginUser" placeholder="请输入账号">
+      <input type="password" id="loginPwd" placeholder="请输入密码">
+      <button onclick="login()">登录</button>
+      <p class="reg-tip">没有账号？<a href="register.html">立即注册</a></p>
+    </div>
+  </div>
+
+<script>
+function login(){
+  let user = document.getElementById("loginUser").value.trim();
+  let pwd = document.getElementById("loginPwd").value.trim();
+  if(!user || !pwd){
+    alert("账号密码不能为空！");
+    return;
+  }
+  localStorage.setItem("userName",user);
+  location.href="main.html";
+}
+</script>
+</body>
+</html>

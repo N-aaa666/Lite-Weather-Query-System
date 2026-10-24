@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>轻简天气 - 注册</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+  <div class="bg">
+    <img src="images/bg.png" alt="背景">
+  </div>
+  <div class="wrapper">
+    <div class="login-card">
+      <h2>用户注册</h2>
+      <input type="text" id="regUser" placeholder="请设置账号">
+      <input type="password" id="regPwd" placeholder="请设置密码">
+      <input type="password" id="regPwd2" placeholder="请再次输入密码">
+      <input type="text" id="regNick" placeholder="请输入昵称">
+      <button onclick="reg()">注册</button>
+      <p class="reg-tip">已有账号？<a href="login.html">返回登录</a></p>
+    </div>
+  </div>
+
+<script>
+function reg(){
+  let user = document.getElementById("regUser").value.trim();
+  let pwd1 = document.getElementById("regPwd").value.trim();
+  let pwd2 = document.getElementById("regPwd2").value.trim();
+  let nick = document.getElementById("regNick").value.trim();
+
+  if(!user || !pwd1 || !pwd2 || !nick){
+    alert("请填写完整信息！");
+    return;
+  }
+  if(pwd1 !== pwd2){
+    alert("两次密码不一致！");
+    return;
+  }
+  alert("注册成功，请前往登录！");
+  location.href="login.html";
+}
+</script>
+</body>
+</html>
